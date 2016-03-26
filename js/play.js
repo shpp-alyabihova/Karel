@@ -165,7 +165,7 @@ $(function () {
     $('#fullscreen-editor-btn').click(function(){
         karelCodeEditor.editor.setOption("fullScreen", true);
         $('#compile-btn').hide();
-        $("body").append("<div id='exitFullScreen-btn'>Exit\nfullscreen</div>");
+        $("body").append("<div class='code-btn' id='exitFullScreen-btn'></div>");
         $("#exitFullScreen-btn").click(function(){
             karelCodeEditor.editor.setOption("fullScreen", false);
             $("#exitFullScreen-btn").detach();
