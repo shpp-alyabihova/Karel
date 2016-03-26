@@ -1,0 +1,238 @@
+@font-face {
+    /*font-family: 'Amaranth';*/
+    /*src: url(../fonts/Getvoipgrotesque.ttf);*/
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Mono', ;
+}
+
+header {
+    height: 3em;
+}
+
+header .background {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /*background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Python_add5_syntax.svg/1280px-Python_add5_syntax.svg.png) center center;*/
+    opacity: 0.02;
+}
+
+.title {
+    padding: 5em 0em;
+    width: 100%;
+    height: 20em;
+    /*background-color: #1abc9c;*/
+    color: white;
+    display: table;
+}
+
+.title .huge {
+    text-align: center;
+    font-size: 400%;
+    font-weight: 900;
+    margin-top: 0.5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.wrap {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.about-project-and-goals {
+    background: #00b7f1;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.about-project-and-goals .wrap {
+    background: url(../img/earth.png) no-repeat center left;
+    padding-left: 10%;
+    background-size: 15%;
+    box-sizing: border-box;
+}
+
+.what-is-karel .wrap {
+    padding-right: 0px;
+    box-sizing: border-box;
+}
+.loops{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+#loops{
+    background: url('../img/walli_2.png') no-repeat center right;
+    background-position: 75%;
+    background-size: 15%;
+    /*margin-right: 22%;*/
+    box-sizing: border-box;
+}
+.ask_about_world h6{
+    padding: 0.5em;
+}
+#commands{
+    background: url('../img/val3.png') no-repeat center right;
+    background-position: 75%;
+    background-size: 15%;
+    /*margin-right: 22%;*/
+    box-sizing: border-box;
+    /*background-color: gainsboro;*/
+}
+.what-is-karel {
+    overflow: hidden;
+    /*background: #1abc9c;*/
+    color: #fff;
+    padding: 1em 1em;
+    padding-left: 15%;
+}
+
+.why-should-i-try {
+    padding: 80px 0;
+}
+
+.why-should-i-try .wrap {
+    background: url(../img/computer.png) no-repeat center left;
+    background-size: 150px;
+    padding-left: 190px;
+    box-sizing: border-box;
+}
+
+footer {
+    height: 50px;
+    line-height: 50px;
+    background: rgb(47, 65, 84);
+    color: #fff;
+}
+
+footer .left {
+    float: left
+}
+
+footer .right {
+    float: right
+}
+
+footer a {
+    color: #fff;
+    text-decoration: underline
+}
+
+footer a:hover {
+    text-decoration: underline
+}
+
+h6{
+    line-height: 1.4em;
+    padding-top: 1em;
+    text-align: left;
+    width: 60%
+}
+.commands{
+    padding: 0.5em;
+    line-height: 1.5em;
+    font-size: 100%;
+    margin-left: 1em;
+    font-family: "PT Mono";
+}
+.tab1{
+    margin-left: 2em;
+    width: 100%;
+}
+.tab2{
+    margin-left: 2em;
+}
+.highlight {
+    color: #D500E8;
+    line-height: 1.5em;
+}
+.lowlight {
+    color: #0000cc;
+}
+
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    text-align: center;
+    font-family: "PT Sans";
+}
+
+.nav {
+    position: fixed;
+    margin-left: -50%;
+    height: 3em;
+    margin-right:auto;
+    width: 100%;
+    display: inline-block;
+    font-weight:900;
+    background: rgba(47, 65, 84, 0.95);
+    z-index: 10;
+}
+.nav-list {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.4em;
+}
+.nav-item {
+    float:left;
+    display:inline;
+    margin-left: 0.2em;
+    zoom:1;
+}
+.nav-item a {
+    display:block;
+    background: rgba(47, 65, 84, 0.95);
+    padding: 0.3em 0.5em;
+    color:white;
+    border-radius: 0.3em;
+}
+.nav-item a:hover {
+    /*background:#2C3E50;*/
+    /*opacity: 0.75;*/
+    color: #1abc9c;
+}
+.loops>.wrap>h6{
+    background-color: white;
+    opacity: 0.75;
+    padding-left: 2em;
+    padding-right: 4em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+}
+.what-is-karel>.wrap>h6{
+    background-color: #3B706F;
+    opacity: 0.75;
+    padding-left: 2em;
+    padding-right: 8em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+    color: white;
+}
+.ask_about_world>.commands>.highlight {
+    color: yellow;
+}
+.highlight2 {
+    color: yellow;
+}
+@media screen and (min-width: 0px) {
+    .wrap{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 480px) {
+    .wrap{
+        width: 90%;
+    }
+}
+@media screen and (min-width: 650px) {
+    .wrap{
+        width: 80%;
+    }
+}
+@media screen and (min-width: 968px) {
+    .wrap{
+        width: 968px;
+    }
+}

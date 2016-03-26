@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karel Map Editor</title>
+    <link rel="stylesheet" type="text/css" href="vendor/css/reset.css">
+    <link rel="stylesheet" href="css/2d-rendering.css">
+    <link rel="stylesheet" href="css/map-editor.css">
+    <link rel="stylesheet" href="css/controls.css">
+    <link rel="stylesheet" href="css/tabs.css">
+
+
+    <script src="vendor/js/jquery-2.2.0.min.js"></script>
+    <script src="vendor/js/jquery-ui.min.js"></script>
+    <script src="vendor/js/flat-ui.min.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/map-selector.js"></script>
+
+</head>
+<body>
+<header>
+
+</header>
+<div class="field-block">
+    <div class="renderer">
+            <div class="controls top" id="button-panel">
+                <div class="row" id="exit-btn">
+                    <div class="button"></div>
+                </div>
+                <div class="row" id="reset">
+                    <div class="button" id="reset-arrow"></div>
+                </div>
+                <div class="row highlight" id="start-map">
+                    <div class="button"></div>
+                </div>
+                <div id="plus-final-map">
+                </div>
+                <div class="row final-maps" id="final-map">
+                    <div class="button"></div>
+                    <div>1</div>
+                    <div class="cross-sign" id="close-final"></div>
+                </div>
+            </div>
+
+        <form class="pop-up dialog" id="complete">
+            <div id="close-pop-up" class="close">&#215</div>
+            <div class="flexible"><span>To save edited maps input:</span></div>
+            <label for="name">name:</label>
+            <input type="text" id="name" name="name" />
+            <label for="description">short description:</label>
+            <input type="text" id="description" name="description" />
+            <input type="submit" value="complete" />
+        </form>
+        <div class="controls bottom">
+            <div class="row" id="finalize">
+                <div class="button"></div>
+            </div>
+        </div>
+
+        <div class="bottom-panel">
+            <div class="flexible bottom-center">
+                <div class="arrow-lft" id="decrement-width"></div>
+                <div class="value" id="value-width">1</div>
+                <div class="arrow-rgt" id="increment-width"></div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="flexible right-center">
+                <div class="arrow-top" id="increment-height"></div>
+                <div class="value" id="value-height">1</div>
+                <div class="arrow-bottom" id="decrement-height"></div>
+            </div>
+        </div>
+
+        <div class="flexible" id="map-editor">
+            <div class="pop-up dialog" id="alert">
+                <div class="close" id="close-alert">&#215</div>
+                <div class="flexible"><span id="alert-msg"></span></div>
+                <input type="submit" value="OK" id="ok-alert"/>
+            </div>
+            <div id="map-field"></div>
+        </div>
+
+    </div>
+    <div id="sidebar">
+        <div id="map-selector-btn" class="vertical-text">Select map</div>
+        <div id="world-list-tab" class="tab">
+            <div class="tab-title">
+                <span>World  List</span>
+            </div>
+        </div>
+    </div>
+    <div id="control-editor">
+
+        <div class="cell-editor">
+            <div class="btn-cell" id="wall">
+            </div>
+            <div class="btn-cell" id="empty">
+            </div>
+            <div class="btn-cell" id="beeper">
+            </div>
+            <div class="btn-cell" id="karel">
+            </div>
+            <div class="btn-cell" id="backpack">
+                <div class="flexible" id="inner">1000</div>
+                <div id="beepers-count">
+                    <input type="text" id="num-beepers" autofocus/>
+                </div>
+            </div>
+            <div id="zoom"></div>
+            <div id="minus">&#150</div>
+            <div id="plus">&#043</div>
+        </div>
+
+    </div>
+</div>
+<footer></footer>
+<script src="js/map-editor.js"></script>
+
+</body>
+</html>

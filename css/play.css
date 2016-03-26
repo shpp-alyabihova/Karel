@@ -1,0 +1,187 @@
+/* ----------------------------------------- */
+/* --------------GENERAL BLOCK-------------- */
+/* ----------------------------------------- */
+
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+.play-block, #renderer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.play-block {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    right: 23em;
+}
+
+.vertical-text {
+    transform: rotate(-90deg);
+    transform-origin: right top 0;
+}
+
+.lightbox {
+    display: none;
+}
+/* ------------------------------------------ */
+/* --------------SIDEBAR BLOCK--------------- */
+/* ------------------------------------------ */
+
+#sidebar {
+    position: absolute;
+    width: 23em;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.tab {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
+}
+
+.tab-title {
+    font-size: 2em;
+    padding: 0.4em 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 6px 19px 0px rgba(0,0,0,0.22);
+    -moz-box-shadow: 0px 6px 19px 0px rgba(0,0,0,0.22);
+    box-shadow: 0px 6px 19px 0px rgba(0,0,0,0.22);
+}
+
+.glyph#home-glyph {
+    background: url('../img/circles/browser.svg') center center no-repeat;
+}
+
+.glyph#editor-glyph {
+    background: url('../img/circles/circlecompass.svg') center center no-repeat;
+}
+
+.glyph#manual-glyph {
+    background: url('../img/circles/dev.svg') center center no-repeat;
+}
+
+.glyph#team-glyph {
+    background: url('../img/circles/star.svg') center center no-repeat;
+}
+
+.glyph#user-glyph {
+    background: url('../img/circles/profile.svg') center center no-repeat;
+}
+
+/* ------------------------------------------ */
+/* -----------CODE CONTROLS BLOCK------------ */
+/* ------------------------------------------ */
+
+#code-editor-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2em;
+    background-color: #1ABC9C;
+    color: #AAAAAA;
+    line-height: 1em;
+    font-size: 1em;
+    overflow: hidden;
+}
+
+#code-editor-controls .row {
+    margin-right: -1em;
+    padding: 1em 1em 0 0;
+}
+
+#code-editor-controls .row > * {
+    margin-right: 1em; 
+    float: right;
+    cursor: pointer;
+}
+
+#code-editor-controls .row > *:hover {
+    opacity: 1;
+}
+
+#code-editor-controls .button, #code-editor-controls a {
+    color: #212E3D;
+    opacity: 0.8;
+}
+
+#code-editor-controls select {
+    margin-top: -0.25em;
+    border: 0;
+    background-color: #2E4054;
+    color: #fff;
+    font-size: 1em;
+    line-height: 1em;
+    padding: 0 6px;
+}
+
+#code-editor-controls select:focus {
+    border: 0;
+}
+
+#code-editor-controls #compile {
+    float: left;
+    background-color: #2E4054;
+    opacity: 1;
+    margin-top: -1em;
+    width: 3em;
+    height: 2em;
+}
+
+#compile-btn {
+    position: absolute;
+    bottom: 1.5em;
+    right: 1.5em;
+    width: 4em;
+    height: 4em;
+    background: url('../img/circles/play.svg') center center;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 2em;
+    z-index: 10;
+}
+
+#compile-btn:hover {
+    -webkit-box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+    -moz-box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+    box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+}
+
+#exitFullScreen-btn {
+    position: absolute;
+    bottom: 1.5em;
+    right: 0.5em;
+    width: 6em;
+    height: 3.5em;
+    border: thick double white;
+    background-color: #0000cc;
+    color: whitesmoke;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 2em;
+    z-index: 10;
+    text-align: center;
+}
+
+#exitFullScreen-btn:hover {
+    -webkit-box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+    -moz-box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+    box-shadow: 6px 6px 3px 0px rgba(0,0,0,0.22);
+}

@@ -1,0 +1,84 @@
+/* ------------------------------------------ */
+/* --------------CONTOLS BLOCK--------------- */
+/* ------------------------------------------ */
+
+.controls {
+    position: absolute;
+    padding: 0 1em 1em 1em;
+}
+
+.controls.top {
+    top: 0;
+}
+
+.controls.bottom {
+    bottom: 0;
+}
+
+.controls.right {
+    right: 0;
+}
+
+.controls .row {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    height: 3em;
+    margin-top: 1em;
+    opacity: 0.5;
+}
+
+.controls .row > * {
+    display: block;
+    float: left;
+    margin-right: 1em;
+/*    transition-timing-function: linear;
+    transition-duration: 1s;*/
+}
+
+.controls .row .button {
+    border: 0;
+    width: 3em;
+    height: 3em;
+    background-position: center center;
+    background-size: 98% 98%;
+    background-repeat: no-repeat;
+    line-height: 4em;
+}
+
+.controls .row > span {
+    color: #FFFFFF;
+    font-size: 1em;
+    line-height: 1em;
+    margin: 1em 0;
+}
+
+.controls .row:hover {
+    opacity: 1;
+}
+
+.controls .row:hover .button {
+    background-size: 100% 100%;
+}
+
+.controls #speed-slider {
+    display: block;
+    margin-top: 1.2em;
+    margin-left: 2em;
+    width: 10em;
+}
+
+#menu-btn .button {
+    background-image: url(../img/controls/menu.svg);
+}
+
+#code-btn .button {
+    background-image: url(../img/controls/code.svg);
+}
+
+#world-list-btn .button {
+    background-image: url(../img/controls/list.svg);
+}
+
+#play-pause-btn .button {
+    background-image: url(../img/controls/pause.svg);
+}

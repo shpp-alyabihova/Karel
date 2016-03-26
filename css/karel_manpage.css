@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Mono' ;
+}
+
+body{
+    width: 100%;
+    font-family: "PT Sans";
+}
+
+.title {
+    padding: 5em 0;
+    width: 100%;
+    height: 20em;
+    /*background-color: #1abc9c;*/
+    color: #34495e;
+    display: table;
+    text-shadow: 8px 4px 2px rgba(0,0,0,0.1);
+}
+.title .huge {
+    text-align: center;
+    font-size: 400%;
+    font-weight: 900;
+    margin-top: 0.5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+.icon-center {
+    text-align: center;
+}
+.header-menu {
+    display: inline-block;
+    padding-right: 1em;
+    margin: -3em 0 3em;
+}
+
+.header-button {
+    border-radius: 0.3em;
+    background-position: -30% center;
+    background-size: 10em;
+    background-repeat: no-repeat;
+    display: table-cell;
+    vertical-align: middle;
+    width: 15em;
+    height: 6.5em;
+    float: left;
+    margin-left: 1em;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.header-button span {
+    display: block;
+    margin: 0.5em 0.5em 0 0;
+    font-size: 1.3em;
+    line-height: 1.1em;
+}
+
+.karel-ability {
+    background-color: #34495e;
+    background-image: url('../img/circles/hand.svg');
+}
+
+.conditions {
+    background-color: #34495e;
+    background-image: url('../img/circles/condition.svg');
+}
+
+.function {
+    background-color: #34495e;
+    background-image: url('../img/circles/function.svg');
+}
+
+
+
+header {
+    height: 3em;
+    text-align: center;
+}
+
+nav {
+    position: fixed;
+    margin-left: -50%;
+    height: 3em;
+    margin-right:auto;
+    width: 100%;
+    display: inline-block;
+    font-weight:900;
+    background: rgba(47, 65, 84, 0.95);
+    z-index: 10;
+}
+nav ul {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.4em;
+}
+nav li {
+    float:left;
+    display:inline;
+    margin-left: 0.4em;
+    zoom:1;
+}
+nav li a {
+    display:block;
+    background: rgba(47, 65, 84, 0.95);
+    padding: 0.3em 0.5em;
+    color:white;
+    border-radius: 0.3em;
+}
+nav li a:hover {
+    /*background:#2C3E50;*/
+    /*opacity: 0.75;*/
+    color: #1abc9c;
+}
+
+.green {
+    background-color: #1abc9c;
+}
+
+.code {
+    background-color: #2E4054;
+    text-align: left;
+    padding: 2em 3em;
+}
+.code code, .code pre {
+    color: #fff !important;
+    background-color: #2E4054 !important; 
+    border-width: 0 !important;
+    font-size: 0.9em !important;
+}
+
+
+.landing-block {
+    padding: 2em 3em;
+}
+.landing-block p {
+    font-size: 1.2em;
+}
+
+.anchor {
+    height: 0;
+    margin: -7em 0 7em 0;
+}
+
+.wrap {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.hello-world {
+    background: #00b7f1;
+    color: #fff;
+}
+.hello-world .wrap {
+    background: url(../img/earth.png) no-repeat center left;
+    padding-left: 10%;
+    background-size: 15%;
+    box-sizing: border-box;
+}
+
+footer {
+    height: 50px;
+    line-height: 50px;
+    background: rgb(47, 65, 84);
+    color: #fff;
+}
+footer .left {
+    float: left
+}
+footer .right {
+    float: right
+}
+footer a {
+    color: #fff;
+    text-decoration: underline
+}
+footer a:hover {
+    text-decoration: underline
+}
+
+@media screen and (min-width: 0px) {
+    .wrap{
+        width: 90%;
+    }
+}
+@media screen and (min-width: 480px) {
+    .wrap{
+        width: 80%;
+    }
+}
+@media screen and (min-width: 650px) {
+    .wrap{
+        width: 70%;
+    }
+}
+@media screen and (min-width: 900px) {
+    .wrap{
+        width: 60%;
+    }
+}

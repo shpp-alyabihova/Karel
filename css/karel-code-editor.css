@@ -1,0 +1,50 @@
+#karel-code-editor {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#karel-code-editor form {
+    height: 100%;
+}
+
+#karel-code-editor .code-block .CodeMirror {
+    height: 100% !important;
+}
+#karel-code-editor .code-block {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#karel-code-editor textarea {
+    box-sizing: border-box;
+    border: 0;
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#karel-code-editor textarea:focus {
+    outline: none;
+}
+
+#karel-code-editor input[type=submit]:focus {
+    outline: none;
+}
+
+#karel-code-editor input[type=submit] {
+    border: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    width: 100%;
+    background: #1abc9c;
+    color: #fff;
+    font-size: 18px;
+}

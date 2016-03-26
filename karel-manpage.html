@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>More about Karel</title>
+
+    <link rel="stylesheet" href="vendor/css/reset.css">
+    <link rel="stylesheet" href="vendor/css/flat-ui.min.css">
+    <link rel="stylesheet" href="vendor/highlight-js/styles/railscasts.css">
+    <link rel="stylesheet" href="css/karel_manpage.css">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bg.css">
+
+    <script src="vendor/js/jquery-2.2.0.min.js"></script>
+    <script src="vendor/highlight-js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#mov">Movement</a>
+            </li>
+            <li>
+                <a href="#surr">Surrounding</a>
+            </li>
+            <li>
+                <a href="#faci">Facing</a>
+            </li>
+            <li>
+                <a href="#beep">Beepers</a>
+            </li>
+            <li>
+                <a href="#blocks">Conditions &amp; Loops</a>
+            </li>
+            <li>
+                <a href="#func">Functions</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="title green">
+    <div class="huge">Simple play with Karel and learn programming</div>
+</div>
+
+<div class="hello-world landing-block">
+    <div class="wrap">
+        <h2>Hello World!</h2>
+        <p>Here we go! Programming of Karel is quite easy challenge even for a kid! Karel can walk throught his own special worlds, turn around, look asides and enjoy the scenery. Also Karel adore to play with beepers. Put them to the ground, and pick up back to his bag. What are those beepers? No one knows, even Karel himself, but who cares? They are so shiny!</p>
+    </div>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="mov"></div>
+    <div class="wrap">
+        <h2>Movement</h2>
+        <p>Let us start from simple moving. Karel lives in a strange isometric world, shrinked to an equal cells. He can move only to a cell in front of him. To move left, or right, he has to turn first. Try to use those commands and walk you karel.</p>
+    </div>
+</div>
+
+<div class="landing-block code">
+    <pre><code>
+// Tell Karel to move one step forward
+move();
+
+// To change Karel's fasing use following commands
+turnLeft();
+turnRight();
+
+// You can't just tell Karel to move one cell left
+// You have to do it in few steps
+turnLeft();
+move();
+turnRight();
+// Now Karel stands on a one cell to the left with same facing</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="surr"></div>
+    <div class="wrap">
+        <h2>Surrounding</h2>
+        <p>But be aware! Karel will break if he stumble the wall or fall from the world edge, so be careful! That means, you have to forse Karel to look around before moving. </p>
+    </div>
+</div>
+
+<div class="landing-block code">
+    <pre><code>
+// There is how Karel can observe the world
+frontIsClear();         // true if there is no any barrier in front of Karel
+frontIsBlocked();       // true if the barrier blocks Karel in front
+leftIsClear();          // true if there is no any barrier in the left side of Karel
+leftIsBlocked();        // true if the barrier blocks Karel in left
+rightIsClear();         // true if there is no any barrier in the right side of Karel
+rightIsBlocked();       // true if the barrier blocks Karel in right
+
+// Use conditional statement to check state of surrounding cells
+// This construction allows Karel to move, only when the cell in front of Karel is not blocked 
+// with wall or the world's edge 
+if (frontIsClear()) {
+    move();
+}</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="faci"></div>
+    <div class="wrap">
+        <h2>Facing</h2>
+        <p>Don't you knew that Karel can perfectly orient in his world? Any time, he can tell you to wich side he is facing now. All you need -- is to ask him gently.</p>
+    </div>
+</div>
+
+<div class="landing-block code">
+    <pre><code>
+// Use following commands to find out Karel's facing
+facingNorth();
+facingEast();
+facingSouth();
+facingWest();</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="beep"></div>
+    <div class="wrap">
+        <h2>Beepers</h2>
+        <p>Now coming Karel's favourite part of his routine -- beepers! No matter what they are, only amount matters! Karel oftenly have some beepers in his bag. He really loves to drop beepers all over his small world and then to collect every las of them.</p>
+        <p>In the same time, Karel is very, very decent robot, so he will never drop any beeper or even pick it from the ground without your permission. You are the programmer, so rule! </p>
+        <p>One more. Remember, Karel can not pick nonexistent beepers, so if he coudn't find any on the ground while picking up, he will crush! Otherwise, Karel will allso stun if you ask him to drop the beeper while his bag is empty.</p>
+    </div>
+</div>
+
+<div class="landing-block code">
+    <pre><code>
+// Use commands to tell Karel put or pick beepers
+putBeeper();
+pickBeeper();
+
+// To prevent crushes, you have to check bag and floor before doing something
+if (beepersInBag()) {
+    putBeeper();
+}
+
+// Use following commands to manage beepers availability
+beepersPresent();       // true if there is at least one beeper on the ground
+noBeepersPresent();     // true if there are no beepers on the ground
+beepersInBag();         // true if there is at least one beeper in Karel's bag
+noBeepersInBag();       // true if there are no beepers in Karel's bag</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="blocks"></div>
+    <div class="wrap">
+        <h2>Conditions &amp; Loops</h2>
+        <p>Let me be fair. It is really annoying to tell Karel what to do step-by-step. Just try it, and you'll ensure this. But you are a programmer! Your mission is to make Karel self-sufficient, teach him to solve different tasks.</p>
+        <p>You can do it subtle and honoreable by using cool programmer's hacks: loops and conditions.</p>
+    </div>
+</div>
+
+<div class="landing-block code">
+    <pre><code>
+// You've allready seen some conditions before
+if (someStatement()) {
+    // this code will be executed
+    // if someStatement() is true
+} else {
+    // otherwise code in else block
+    // will be executed
+}
+
+// You can combine if..else blocks in many ways
+if (facingNorth()) {
+    if (frontIsClear()) {
+        move();
+    } else {
+        turnLeft();
+    }
+} else if (facingEast()) {
+    if (beepersInBag()) {
+        putBeeper();
+    }
+} else {
+    turnLeft();
+}
+
+// Loops allow you to do some actions repetedly
+while (someStatement()) {
+    // This code will be executed many times repetedly
+    // until condition someStatement() in brackets becomes false
+}
+
+// If you want to execute your command fixed amound of times, you have to use scecial loop
+for (var i=0; i&lt;N; i++) {
+    // This code will be executed N times
+}</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="anchor" id="func"></div>
+    <div class="wrap">
+        <h2>Functions</h2>
+        <p>And now, young padavan, when you reallised your real power, you can learn the greatest abilities of Karel and guide him throught the novel isometric worlds, right to his ultimate goal, the Knowledge! Teach Karel to do new things! Create new commands! </p>
+        <p>Step-by-step, day-by-day... Be patient and wise, young padavan, and you will reach the highest ranks of programming!</p>
+    </div>
+</div>
+
+<div class="code landing-block">
+    <pre><code>
+// Use functions to create new Karel commands
+// It is usefull when you need to write same sequence of commands alot
+function commandName() {
+    // some code here
+} 
+
+// If you need to create command for checking some states
+// just return true or false when is is necessary
+function alwaysTrue() {
+    return true;
+}
+
+// Nou you can use your commads just as they would be Karel's native
+function alwaysMove() {
+    if (alwaysTrue()) {
+        move();
+    }
+}
+alwaysMove();
+
+// If you meet a sequence of conditions u can use logical operations
+// Use logical AND (&&) to execute command only when all of the conditions are true
+if (frontIsClear() && facingNorth()) {
+    move();
+}
+
+// Use logical OR (||) to execute command if there is at least one true condition
+if (facingSouth() || facingNorth()) {
+    if (frontIsClear()) {
+        move();
+    }
+}</code></pre>
+</div>
+
+<div class="landing-block">
+    <div class="wrap">
+        <h2>Ahoy!</h2>
+        <p>I guess, now you are ready to try yourself in programming robots. Just press this big red button, start coding and gain new knowledge. Good luck!</p>
+        <button class="btn btn-danger btn-hg"><a href="play.html" style="color: white;">Big Red Button!</a></button>
+    </div>
+</div>
+
+<footer id="about">
+    <div class="wrap">
+        <div class="left">
+            &copy; SHPP 2016
+        </div>
+        <div class="right">
+            This project created as a part of <a href="http://programming.kr.ua" target="_blank">SHPP school</a> developers training program "Get in Hola in 4 months"
+        </div>
+    </div>
+</footer>
+</body>
+</html>

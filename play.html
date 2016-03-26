@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Karel Online Player</title>
+
+    <link rel="stylesheet" type="text/css" href="vendor/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css/flat-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css/featherlight.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/codemirror/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="vendor/codemirror/theme/material-dark.css">
+    <link rel="stylesheet" type="text/css" href="vendor/codemirror/addon/display/fullscreen.css">
+    <link rel="stylesheet" type="text/css" href="css/karel-code-editor.css">
+    <link rel="stylesheet" type="text/css" href="css/2d-rendering.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/play.css">
+    <link rel="stylesheet" type="text/css" href="css/controls.css">
+    <link rel="stylesheet" type="text/css" href="css/tabs.css">
+
+    <script src="vendor/js/jquery-2.2.0.min.js"></script>
+    <script src="vendor/js/jquery-ui.min.js"></script>
+    <script src="vendor/js/jquery.ddslick.min.js"></script>
+    <script src="vendor/js/three.min.js"></script>
+    <script src="vendor/js/featherlight.min.js"></script>
+    <script src="vendor/codemirror/codemirror.js"></script>
+    <script src="vendor/codemirror/mode/javascript.js"></script>
+    <script src="vendor/codemirror/mode/clike.js"></script>
+    <script src="vendor/codemirror/keymap/sublime.js"></script>
+    <script src="vendor/codemirror/addon/display/fullscreen.js"></script>
+
+    <script src="js/storage.js"></script>
+    <script src="js/sequence-events.js"></script>
+    <script src="js/karel-code-compiler.js"></script>
+    <script src="js/karel-code-editor.js"></script>
+    <script src="js/karel-map-editor.js"></script>
+    <script src="js/karel-2d-lib.js"></script>
+    <script src="js/karel-3d-lib.js"></script>
+    <script src="js/karel-player.js"></script>
+    <script src="js/map-selector.js"></script>
+    <script src="js/sidebar-slider.js"></script>
+    <script src="js/shpp-map-init.js"></script>
+    <script src="js/play.js"></script>
+
+</head>
+<body>
+<header>
+    
+</header>
+<div id="help-lightbox" class="lightbox">
+    <h2>Karel Commands Help</h2>
+    <h3>Built-in Karel commands:</h3>
+    <p><b>move();</b> - move robot one step to current direction</p>
+    <p><b>turnLeft();</b> - turn current robot direction to left</p>
+    <p><b>turnRight();</b> - turn current robot direction to right</p>
+    <p><b>putBeeper();</b> - take beeper from the bag and put it to the cell</p>
+    <p><b>pickBeeper();</b> - take beeper from the cell and put into the bag</p>
+    <h3>Karel conditions</h3>
+    <p><b>frontIsClear()</b> / <b>frontIsBlocked()</b> - check for a wall in front</p>
+    <p><b>leftIsClear()</b> / <b>leftIsBlocked()</b> - check for a wall from left</p>
+    <p><b>rightIsClear()</b> / <b>rightIsBlocked()</b> - check for a wall from right</p>
+    <p><b>beepersPresent()</b> / <b>noBeepersPresent()</b> - check for beepers in cell</p>
+    <p><b>beepersInBag()</b> / <b>noBeepersInBag()</b> - check for beepers in bag</p>
+    <p><b>facingNorth()</b> / <b>notFacingNorth()</b> - check current direction. Is it North?</p>
+    <p><b>facingEast()</b> / <b>notFacingEast()</b> - check current direction. Is it East?</p>
+    <p><b>facingSouth()</b> / <b>notFacingSouth()</b> - check current direction. Is it South?</p>
+    <p><b>facingWest()</b> / <b>notFacingWest()</b> - check current direction. Is it West?</p>
+    <h2>Karel Code Editor Help</h2>
+    <p>While it is based on CodeMirror Ace editor most of usual programming shurtcuts are supported. It is used keymap of Sublime Text key binds</p>
+    <h3>Karel keybindings</h3>
+    <p>There are some keybindings, provided by KarelOnline team, to help you with maintaining you code</p>
+    <p>Use <b>Ctrl-Enter</b> to execute code.</p>
+    <p>To manage font size of code-editor use <b>Ctrl-PgUp</b> and <b>Ctrl+PgDn</b></p>
+    <h3>Default Sublime Keybinds</h3>
+    <p>To provide sublime-like code editor behavior we provide following shortcuts:</p>
+    <p><b>Alt-Right</b>: goSubwordRight</p>
+    <p><b>Ctrl-Up</b>: scrollLineUp</p>
+    <p><b>Ctrl-Down</b>: scrollLineDown</p>
+    <p><b>Shift-Ctrl-L</b>: splitSelectionByLine</p>
+    <p><b>Shift-Tab</b>: indentLess</p>
+    <p><b>Esc</b>: singleSelectionTop</p>
+    <p><b>Ctrl-L</b>: selectLine</p>
+    <p><b>Shift-Ctrl-K</b>: deleteLine</p>
+    <p><b>Ctrl-Enter</b>: insertLineAfter</p>
+    <p><b>Shift-Ctrl-Enter</b>: insertLineBefore</p>
+    <p><b>Ctrl-D</b>: selectNextOccurrence</p>
+    <p><b>Shift-Ctrl-Space</b>: selectScope</p>
+    <p><b>Shift-Ctrl-M</b>: selectBetweenBrackets</p>
+    <p><b>Ctrl-M</b>: goToBracket</p>
+    <p><b>Shift-Ctrl-Up</b>: swapLineUp</p>
+    <p><b>Shift-Ctrl-Down</b>: swapLineDown</p>
+    <p><b>Ctrl-/</b>: toggleCommentIndented</p>
+    <p><b>Ctrl-J</b>: joinLines</p>
+    <p><b>Shift-Ctrl-D</b>: duplicateLine</p>
+    <p><b>Ctrl-T</b>: transposeChars</p>
+    <p><b>F9</b>: sortLines</p>
+    <p><b>Ctrl-F9</b>: sortLinesInsensitive</p>
+    <p><b>F2</b>: nextBookmark</p>
+    <p><b>Shift-F2</b>: prevBookmark</p>
+    <p><b>Ctrl-F2</b>: toggleBookmark</p>
+    <p><b>Shift-Ctrl-F2</b>: clearBookmarks</p>
+    <p><b>Alt-F2</b>: selectBookmarks</p>
+    <p><b>Alt-Q</b>: wrapLines</p>
+    <p><b>Ctrl-K Ctrl-Backspace</b>: delLineLeft</p>
+    <p><b>Backspace</b>: smartBackspace</p>
+    <p><b>Ctrl-K Ctrl-K</b>: delLineRight</p>
+    <p><b>Ctrl-K Ctrl-U</b>: upcaseAtCursor</p>
+    <p><b>Ctrl-K Ctrl-L</b>: downcaseAtCursor</p>
+    <p><b>Ctrl-K Ctrl-Space</b>: setSublimeMark</p>
+    <p><b>Ctrl-K Ctrl-A</b>: selectToSublimeMark</p>
+    <p><b>Ctrl-K Ctrl-W</b>: deleteToSublimeMark</p>
+    <p><b>Ctrl-K Ctrl-X</b>: swapWithSublimeMark</p>
+    <p><b>Ctrl-K Ctrl-Y</b>: sublimeYank</p>
+    <p><b>Ctrl-K Ctrl-G</b>: clearBookmarks</p>
+    <p><b>Ctrl-K Ctrl-C</b>: showInCenter</p>
+    <p><b>Shift-Alt-Up</b>: selectLinesUpward</p>
+    <p><b>Shift-Alt-Down</b>: selectLinesDownward</p>
+    <p><b>Ctrl-F3</b>: findUnder</p>
+    <p><b>Shift-Ctrl-F3</b>: findUnderPrevious</p>
+    <p><b>Shift-Ctrl-[</b>: fold</p>
+    <p><b>Shift-Ctrl-]</b>: unfold</p>
+    <p><b>Ctrl-K Ctrl-j</b>: unfoldAll</p>
+    <p><b>Ctrl-K Ctrl-0</b>: unfoldAll</p>
+    <p><b>Ctrl-H</b>: replace</p>
+</div>
+
+<div class="play-block">
+
+    <div id="renderer" class="left flexible">
+    </div>
+
+    <div class="controls top">
+        <div class="row" id="menu-btn">
+            <div class="button"></div>
+            <span>Menu</span>
+        </div>
+        <div class="row" id="code-btn">
+            <div class="button"></div>
+            <span>Code</span>
+        </div>
+        <div class="row" id="world-list-btn">
+            <div class="button"></div>
+            <span>Worlds</span>
+        </div>        
+    </div>
+
+    <div class="controls bottom">
+        <div class="row" id="play-pause-btn">
+            <div class="button"></div>
+        </div>
+    </div>
+
+    <div class="controls bottom right">
+        <div class="row">
+            <span>Speed:</span>
+            <span id="speed-slider"></span>
+        </div>
+    </div>
+</div>
+
+<div id="sidebar">
+    <div id="code-editor-tab" class="tab">
+        <div id="code-editor-controls">
+            <div class="row">
+                <select id="language-list">
+                    <option value="js">JavaScript</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                </select>
+                <div id="fullscreen-editor-btn" class="button">Fullscreen</div>
+                <div id="help" class="button">
+                    <a href="#" data-featherlight="#help-lightbox">Help</a>
+                </div>
+                <div id="taskDescr" class="button">
+                    <a href="#">Task</a>
+                </div>
+            </div>
+        </div>
+        <div id="karel-code-editor"></div>
+        <div id="compile-btn"></div>
+    </div>
+    <div id="menu-tab" class="tab">
+        <div class="tab-title">
+            <span>Menu</span>
+        </div>
+        <ul>
+            <li>
+                <div id="team-glyph" class="glyph"></div>
+                <a id="renderer-switch" href="#">Use 2D renderer</a>
+            </li>
+            <li>
+                <div id="editor-glyph" class="glyph"></div>
+                <a href="map-editor.html">World editor</a>
+            </li>
+            <li>
+                <div id="manual-glyph" class="glyph"></div>
+                <a href="karel-manpage.html">Manual page</a>
+            </li>
+            <li>
+                <div id="home-glyph" class="glyph"></div>
+                <a href="index.html">Home</a>
+            </li>
+        </ul>
+    </div>
+    <div id="world-list-tab" class="tab">
+        <div class="tab-title">
+            <span>World List</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
